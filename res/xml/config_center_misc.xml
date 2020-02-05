@@ -17,7 +17,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
-
+	
+	<com.havoc.config.center.colorpicker.ColorPickerPreference
+            android:key="accent_color"
+            android:title="Accent Color"
+            settings:defaultColorValue="0xff1a73e8"
+            android:persistent="false" />
+	
     <com.havoc.support.preferences.SystemSettingMasterSwitchPreference
         android:key="gaming_mode_enabled"
         android:fragment="com.havoc.config.center.fragments.GamingMode"

@@ -23,6 +23,12 @@ import android.os.SystemProperties;
 import android.provider.Settings;
 import androidx.preference.*;
 
+import com.havoc.config.center.display.AccentColorPreferenceController;
+import com.havoc.config.center.display.QsAlphaPreferenceController;
+import com.havoc.config.center.display.QsbgColorPreferenceController;
+import com.havoc.config.center.display.QsColorPreferenceController;
+import com.havoc.config.center.display.QsCustomHeaderPreferenceController;
+
 import com.android.internal.logging.nano.MetricsProto; 
 
 import com.android.settings.R;
@@ -64,5 +70,15 @@ public class Misc extends SettingsPreferenceFragment
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.HAVOC_SETTINGS;
+    }
+	
+	private static List<AbstractPreferenceController> buildPreferenceControllers(
+            Context context, Lifecycle lifecycle, Fragment fragment) {
+        controllers.add(new AccentColorPreferenceController(context));
+        controllers.add(new QsAlphaPreferenceController(context));
+        controllers.add(new QsbgColorPreferenceController(context));
+        controllers.add(new QsColorPreferenceController(context));
+        controllers.add(new QsCustomHeaderPreferenceController(context));
+        return controllers;
     }
 }
